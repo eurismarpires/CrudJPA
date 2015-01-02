@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
  
 @Entity
 @Table(name="cliente")
@@ -17,7 +19,9 @@ public class Cliente implements Serializable {
     @Column(name="codigo")
     private Long codigo;
  
-    @Column(length=100, name="nome")
+    @NotNull
+    @Size(min = 1,max = 100,message = "Este campo não pode ser nulo")
+    @Column(length=100, name="nome")    
     private String nome;
  
     public Long getCodigo() {

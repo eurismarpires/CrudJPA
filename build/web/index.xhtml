@@ -16,7 +16,10 @@
                 <legend>Dados do cliente</legend>
                 <h:panelGrid columns="4">
                     <h:outputText value="Nome" />
-                    <h:inputText value="#{clienteBean.cliente.nome}" />
+                    <h:inputText value="#{clienteBean.cliente.nome}" id="inputNovo"/>
+                    
+                    <h:messages for="inputNovo"/>
+                    
                     <h:commandButton value="Gravar" action="#{clienteBean.gravar}" />
                     <h:commandButton value="Remover" action="#{clienteBean.remover}" rendered="#{clienteBean.cliente.codigo > 0}" />
                 </h:panelGrid>
